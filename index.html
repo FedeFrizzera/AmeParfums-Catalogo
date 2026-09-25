@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ÂME Parfums | Fragancias de equivalencia</title>
+<meta name="description" content="Perfumes de equivalencia con extracto importado. Más de 200 fragancias inspiradas en los grandes clásicos. Consultá por WhatsApp y recibí tu pedido.">
+
+<meta property="og:title" content="ÂME Parfums | Fragancias de equivalencia">
+<meta property="og:description" content="Más de 200 fragancias con extracto importado. Consultá por WhatsApp y recibí tu pedido.">
+<meta property="og:image" content="logoo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+
+<link rel="icon" type="image/jpeg" href="logoo.jpeg">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =======================================================
+   ÂME PARFUMS — estilos del INDEX
+   ======================================================= */
+
+:root {
+  --piedra:      #EDE9E3;
+  --piedra-2:    #E3DED6;
+  --papel:       #FBFAF8;
+  --tinta:       #1A1916;
+  --tinta-suave: #6E6860;
+  --linea:       #D8D2C8;
+  --verde:       #24362F;
+  --verde-claro: #3D584C;
+  --dorado:      #C9A961;
+
+  --femenino:    #7E4F58;
+  --masculino:   #2C3E4A;
+  --unisex:      #4C5540;
+
+  --ancho: 1180px;
+  --radio: 3px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--tinta);
+  background: var(--piedra);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 3px;
+}
+
+.envoltorio {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--verde);
+  background: var(--verde);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  transition: background .25s ease, color .25s ease;
+}
+.boton:hover { background: var(--verde-claro); border-color: var(--verde-claro); }
+
+.boton--linea {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--linea);
+}
+.boton--linea:hover { background: var(--tinta); color: var(--papel); border-color: var(--tinta); }
+
+/* =======================================================
+   BARRA DE NAVEGACIÓN
+   ======================================================= */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(237, 233, 227, .85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 72px;
+}
+
+.marca { display: flex; align-items: center; gap: 12px; }
+
+.marca__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.marca__texto span {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  letter-spacing: .14em;
+  line-height: 1;
+}
+.marca__texto small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: .38em;
+  color: var(--tinta-suave);
+  margin-top: 4px;
+}
+
+.menu { display: flex; align-items: center; gap: 30px; }
+
+.menu > a {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  transition: color .2s;
+}
+.menu > a:hover,
+.menu > a[aria-current="page"] { color: var(--tinta); }
+
+.menu .boton {
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 12.5px;
+}
+.menu .boton:hover { color: #fff; }
+
+.barra__toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 8px 14px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---------- Submenú ---------- */
+
+.menu__submenu { position: relative; }
+
+.menu__submenu-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  cursor: pointer;
+  transition: color .2s;
+}
+.menu__submenu-boton:hover,
+.menu__submenu-boton[aria-expanded="true"] { color: var(--tinta); }
+
+.menu__submenu-boton i { font-size: 11px; transition: transform .25s ease; }
+.menu__submenu-boton[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.menu__submenu-lista {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 220px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 12px 32px rgba(26,25,22,.10);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  z-index: 60;
+}
+.menu__submenu-lista a {
+  padding: 10px 20px;
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  transition: background .2s, color .2s;
+}
+.menu__submenu-lista a:hover { background: var(--piedra); color: var(--tinta); }
+
+.menu__submenu.abierto .menu__submenu-lista,
+.menu__submenu:hover .menu__submenu-lista {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =======================================================
+   PORTADA
+   ======================================================= */
+
+.portada { padding: 100px 0 80px; }
+
+.portada__grilla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.portada__intro {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-bottom: 30px;
+}
+
+.portada h1 {
+  font-size: clamp(48px, 6.6vw, 88px);
+  letter-spacing: -0.02em;
+  margin-bottom: 28px;
+}
+.portada h1 em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.portada__texto {
+  max-width: 44ch;
+  color: var(--tinta-suave);
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.portada__acciones { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.vitrina {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  min-height: 410px;
+  overflow: hidden;
+  background: var(--piedra);
+  border-radius: 0;
+}
+
+.vitrina img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% center;
+  display: block;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
+          mask-image: radial-gradient(ellipse at center, #000 55%, transparent 100%);
+}
+
+/* ---------- Datos ---------- */
+
+.datos {
+  border-block: 1px solid var(--linea);
+  background: var(--papel);
+}
+.datos__grilla {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.dato {
+  padding: 36px 32px;
+  border-left: 1px solid var(--linea);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dato:first-child { border-left: none; }
+
+.dato__num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--tinta);
+}
+.dato__num i { font-size: 28px; color: var(--verde); }
+
+.dato__txt {
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+}
+
+/* =======================================================
+   SECCIONES
+   ======================================================= */
+
+.seccion { padding: 100px 0; }
+.seccion--papel { background: var(--papel); }
+
+.seccion__titulo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 52px;
+}
+.seccion__titulo h2 { font-size: clamp(34px, 4vw, 48px); }
+.seccion__titulo p {
+  color: var(--tinta-suave);
+  font-size: 14.5px;
+  max-width: 42ch;
+}
+
+/* ---------- Categorías ---------- */
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.categoria {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 32px 30px 30px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  transition: border-color .25s ease, transform .25s ease;
+  position: relative;
+}
+.categoria:hover {
+  border-color: var(--tinta);
+  transform: translateY(-3px);
+}
+
+.categoria__icono {
+  font-size: 26px;
+  color: var(--verde);
+  line-height: 1;
+}
+
+.categoria__info h3 {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.categoria__info p {
+  font-size: 14px;
+  color: var(--tinta-suave);
+  margin-bottom: 18px;
+  max-width: 30ch;
+}
+
+.categoria__cantidad {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--verde);
+}
+
+.categoria__flecha {
+  position: absolute;
+  top: 32px;
+  right: 30px;
+  font-size: 18px;
+  color: var(--tinta-suave);
+  transition: transform .25s ease, color .25s ease;
+}
+.categoria:hover .categoria__flecha {
+  color: var(--tinta);
+  transform: translateX(4px);
+}
+
+/* ---------- Beneficios ---------- */
+
+.beneficios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.beneficio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.beneficio:hover {
+  border-color: var(--tinta-suave);
+  transform: translateY(-2px);
+}
+
+.beneficio__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.beneficio__info h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  letter-spacing: 0;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.beneficio__info strong {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--tinta);
+  line-height: 1.3;
+}
+
+.beneficio__info p {
+  font-size: 13px;
+  color: var(--tinta-suave);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.beneficio__icono {
+  font-size: 26px;
+  color: var(--dorado);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ---------- Pasos ---------- */
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.paso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px 32px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.paso:hover {
+  border-color: var(--tinta-suave);
+  transform: translateY(-2px);
+}
+
+.paso__info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.paso__num {
+  display: inline-block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 14px;
+  letter-spacing: .12em;
+  color: var(--verde);
+  margin-bottom: 4px;
+}
+
+.paso__info h3 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.paso__info p {
+  font-size: 14px;
+  color: var(--tinta-suave);
+  line-height: 1.5;
+}
+
+.paso__icono {
+  font-size: 34px;
+  color: var(--dorado);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ---------- Carrusel ---------- */
+
+.carrusel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carrusel__pista {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 100vw;
+  width: 100%;
+}
+.carrusel__pista::-webkit-scrollbar { display: none; }
+
+.carrusel__pista .tarjeta {
+  flex: 0 0 calc((100% - 60px) / 4);
+  scroll-snap-align: start;
+}
+
+.carrusel__flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--linea);
+  background: var(--papel);
+  color: var(--tinta);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: border-color .25s ease, background .25s ease, color .25s ease;
+  box-shadow: 0 4px 14px rgba(26,25,22,.08);
+}
+.carrusel__flecha:hover {
+  border-color: var(--tinta);
+  background: var(--tinta);
+  color: var(--papel);
+}
+.carrusel__flecha--prev { left: -22px; }
+.carrusel__flecha--next { right: -22px; }
+.carrusel__flecha[disabled] { opacity: .35; pointer-events: none; }
+
+.carrusel__puntos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+.carrusel__punto {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--linea);
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+}
+.carrusel__punto[aria-current="true"] {
+  background: var(--verde);
+  transform: scale(1.2);
+}
+
+/* ---------- Testimonios carrusel ---------- */
+
+.carrusel--testimonios .carrusel__pista { gap: 32px; }
+
+.carrusel--testimonios .testimonio {
+  flex: 0 0 calc((100% - 64px) / 3);
+  scroll-snap-align: start;
+  border-left: 2px solid var(--verde);
+  padding-left: 24px;
+}
+
+.testimonio blockquote {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--tinta);
+  margin-bottom: 18px;
+}
+
+.testimonio figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.testimonio figcaption strong { font-size: 13.5px; font-weight: 500; }
+.testimonio figcaption span { font-size: 12.5px; color: var(--tinta-suave); }
+
+/* ---------- Cita ---------- */
+
+.cita {
+  background: var(--verde);
+  color: #fff;
+  padding: 17px 0;
+  text-align: center;
+}
+.cita p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 2.4vw, 44px);
+  font-style: italic;
+  line-height: 1.25;
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+/* =======================================================
+   GRILLA DE TARJETAS
+   ======================================================= */
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  overflow: hidden;
+  text-align: left;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.tarjeta:hover { border-color: var(--tinta); transform: translateY(-3px); }
+
+.tarjeta__visual {
+  position: relative;
+  height: 178px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--piedra-2);
+  overflow: hidden;
+}
+.tarjeta__visual img { width: 100%; height: 100%; object-fit: cover; }
+
+.tarjeta__etiqueta {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.9);
+  color: var(--tinta-suave);
+}
+
+.frasco {
+  width: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.frasco__tapa {
+  width: 26px;
+  height: 20px;
+  background: var(--verde);
+  border-radius: 2px 2px 0 0;
+}
+.frasco__cuello { width: 16px; height: 9px; background: var(--verde-claro); }
+.frasco__cuerpo {
+  width: 100%;
+  height: 112px;
+  border-radius: 6px 6px 3px 3px;
+  background: linear-gradient(160deg, #fff 0%, var(--piedra) 45%, var(--piedra-2) 100%);
+  border: 1px solid var(--linea);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frasco__codigo {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: var(--tinta-suave);
+  border-block: 1px solid var(--linea);
+  padding: 5px 12px;
+}
+
+.tarjeta--masculino .frasco__tapa { background: var(--masculino); }
+.tarjeta--femenino  .frasco__tapa { background: var(--femenino); }
+.tarjeta--unisex    .frasco__tapa { background: var(--unisex); }
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 22px 24px;
+}
+.tarjeta__cuerpo h3 { font-size: 24px; margin-bottom: 4px; }
+.tarjeta__ref { font-size: 12.5px; color: var(--tinta-suave); }
+.tarjeta__familia {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin: 14px 0 6px;
+}
+.tarjeta__perfil { font-size: 13.5px; color: var(--tinta-suave); flex: 1; }
+.tarjeta__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--linea);
+  font-size: 12px;
+  color: var(--tinta-suave);
+}
+.tarjeta__ver {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--verde);
+  padding: 0 0 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--verde);
+}
+.tarjeta__ver:hover { color: var(--verde-claro); border-color: var(--verde-claro); }
+
+.mas { display: flex; justify-content: center; margin-top: 52px; }
+
+/* =======================================================
+   PIE
+   ======================================================= */
+
+.pie { background: var(--tinta); color: #CFC9C0; padding: 80px 0 32px; }
+.pie a { color: #CFC9C0; }
+.pie__grilla {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+.pie .marca__texto span { color: #fff; }
+.pie p { font-size: 14px; margin-top: 16px; max-width: 34ch; }
+.pie h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.pie ul { list-style: none; display: grid; gap: 10px; font-size: 14px; }
+.pie__redes { display: flex; gap: 16px; font-size: 19px; }
+
+.pie__legal {
+  border-top: 1px solid #38342E;
+  margin-top: 60px;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #8D867C;
+}
+
+/* ---------- Flotante ---------- */
+
+.flotante {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  box-shadow: 0 8px 24px rgba(26,25,22,.22);
+  transition: transform .25s ease;
+}
+.flotante:hover { transform: scale(1.05); }
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+
+@media (max-width: 1000px) {
+  .grilla { grid-template-columns: repeat(3, 1fr); }
+  .portada__grilla { grid-template-columns: 1fr; gap: 48px; }
+  .vitrina { min-height: 380px; aspect-ratio: 16 / 10; }
+  .pie__grilla { grid-template-columns: 1fr 1fr; }
+  .beneficios { grid-template-columns: repeat(2, 1fr); }
+
+  .carrusel__pista .tarjeta { flex: 0 0 calc((100% - 40px) / 3); }
+  .carrusel--testimonios .testimonio { flex: 0 0 calc((100% - 48px) / 2); }
+  .carrusel__flecha--prev { left: -14px; }
+  .carrusel__flecha--next { right: -14px; }
+}
+
+@media (max-width: 820px) {
+  .barra__toggle { display: block; }
+  .menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linea);
+    padding: 10px 28px 22px;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  .menu.abierto { display: flex; }
+  .menu > a { padding: 14px 0; border-bottom: 1px solid var(--linea); }
+  .menu .boton { justify-content: center; margin-top: 14px; border-bottom: none; }
+  .barra { position: relative; }
+
+  .menu__submenu { width: 100%; }
+  .menu__submenu-boton {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--linea);
+    justify-content: space-between;
+    font-size: 13.5px;
+  }
+  .menu__submenu-lista {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+    background: transparent;
+  }
+  .menu__submenu.abierto .menu__submenu-lista { max-height: 400px; }
+  .menu__submenu-lista a {
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .portada { padding: 60px 0 48px; }
+  .portada__grilla { grid-template-columns: 1fr; gap: 40px; }
+  .portada h1 { font-size: clamp(40px, 9vw, 60px); }
+  .portada__texto { font-size: 15px; margin-bottom: 32px; }
+  .vitrina { aspect-ratio: 16 / 10; min-height: 280px; }
+
+  .grilla { grid-template-columns: repeat(2, 1fr); }
+  .categorias { grid-template-columns: 1fr; }
+  .pasos { grid-template-columns: 1fr; gap: 20px; }
+  .beneficios { grid-template-columns: 1fr; }
+  .datos__grilla { grid-template-columns: 1fr; }
+  .dato { border-left: none; border-top: 1px solid var(--linea); padding: 24px 22px; }
+  .dato:first-child { border-top: none; }
+
+  .seccion { padding: 64px 0; }
+  .seccion__titulo { flex-direction: column; gap: 12px; margin-bottom: 36px; }
+  .seccion__titulo h2 { font-size: clamp(28px, 5vw, 36px); }
+
+  .carrusel__pista .tarjeta { flex: 0 0 calc((100% - 20px) / 2); }
+  .carrusel--testimonios .testimonio { flex: 0 0 calc((100% - 32px) / 2); }
+  .carrusel__flecha { display: none; }
+  .carrusel__puntos { margin-top: 20px; }
+
+  .paso { padding: 24px 22px; gap: 14px; }
+  .paso__info h3 { font-size: 21px; }
+  .paso__icono { font-size: 28px; }
+
+  .cita { padding: 14px 0; }
+  .cita p { font-size: clamp(18px, 4.5vw, 26px); }
+
+  .pie { padding: 60px 0 28px; }
+  .pie__grilla { grid-template-columns: 1fr; gap: 32px; }
+  .pie__legal { margin-top: 40px; padding-top: 18px; flex-direction: column; }
+}
+
+@media (max-width: 540px) {
+  .envoltorio { padding-inline: 20px; }
+
+  .portada { padding: 48px 0 40px; }
+  .portada h1 { font-size: clamp(36px, 11vw, 52px); }
+  .portada__acciones { flex-direction: column; align-items: stretch; }
+  .portada__acciones .boton { justify-content: center; width: 100%; }
+  .vitrina { min-height: 220px; aspect-ratio: 5 / 4; }
+
+  .grilla { grid-template-columns: 1fr; }
+
+  .categorias { gap: 12px; }
+  .categoria { padding: 26px 24px 24px; gap: 22px; }
+  .categoria__info h3 { font-size: 26px; }
+
+  .beneficios { gap: 10px; }
+  .beneficio { padding: 16px 18px; }
+  .beneficio__icono { font-size: 22px; }
+
+  .pasos { gap: 14px; }
+  .paso { padding: 22px 20px; flex-direction: column; align-items: flex-start; }
+  .paso__icono { font-size: 26px; align-self: flex-end; }
+  .paso__info h3 { font-size: 20px; }
+
+  .carrusel__pista .tarjeta { flex: 0 0 88%; }
+  .carrusel--testimonios .testimonio { flex: 0 0 88%; }
+  .testimonio blockquote { font-size: 19px; }
+
+  .seccion { padding: 52px 0; }
+
+  .flotante { width: 48px; height: 48px; font-size: 22px; right: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BARRA ============ -->
+<header class="barra">
+  <div class="envoltorio barra__fila">
+
+    <a class="marca" href="index.html">
+      <img class="marca__logo" src="logoo.jpeg" alt="ÂME Parfums" onerror="this.remove()">
+      <span class="marca__texto">
+        <span>ÂME</span>
+        <small>PARFUMS</small>
+      </span>
+    </a>
+
+    <button class="barra__toggle" id="abrirMenu" aria-expanded="false" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="menu" id="menu">
+      <a href="index.html" aria-current="page">Inicio</a>
+
+      <div class="menu__submenu">
+        <button class="menu__submenu-boton" aria-haspopup="true" aria-expanded="false">
+          Catálogo <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="menu__submenu-lista">
+          <a href="catalogo.html">Todos los perfumes</a>
+          <a href="catalogo.html?categoria=masculino">Masculinos</a>
+          <a href="catalogo.html?categoria=femenino">Femeninos</a>
+          <a href="catalogo.html?categoria=bodysplash">Bodysplash</a>
+          <a href="catalogo.html?categoria=unisex">Unisex</a>
+        </div>
+      </div>
+
+      <a href="#como-comprar">Cómo comprar</a>
+      <a href="nosotros.html">Nosotros</a>
+
+      <a class="boton" target="_blank" rel="noopener"
+         data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#">
+        <i class="bi bi-whatsapp"></i> Escribinos
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ============ PORTADA ============ -->
+<section class="portada">
+  <div class="envoltorio portada__grilla">
+
+    <div class="portada__contenido">
+      <p class="portada__intro">
+        Extracto importado · Fragancias de equivalencia
+      </p>
+
+      <h1>Tu perfume,<br><em>todos los días</em></h1>
+
+      <p class="portada__texto">
+        Un catálogo de <strong>más de 200 fragancias</strong> inspiradas en los grandes clásicos
+        de la perfumería, con la intensidad y la duración del extracto importado.
+      </p>
+
+      <div class="portada__acciones">
+        <a class="boton" href="catalogo.html">Ver el catálogo</a>
+        <a class="boton boton--linea" target="_blank" rel="noopener"
+           data-whatsapp="Hola! Quiero que me ayuden a elegir un perfume." href="#">
+          <i class="bi bi-whatsapp"></i> Te ayudo a elegir
+        </a>
+      </div>
+    </div>
+
+    <div class="vitrina">
+      <img src="LogoPerfumes.jpeg" alt="Frascos ÂME Parfums" loading="eager">
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ DATOS ============ -->
+<section class="datos">
+  <div class="envoltorio datos__grilla">
+
+    <div class="dato">
+      <span class="dato__num" data-conteo="todos">222</span>
+      <span class="dato__txt">fragancias disponibles</span>
+    </div>
+
+    <div class="dato">
+      <span class="dato__num"><i class="bi bi-truck"></i></span>
+      <span class="dato__txt">Envíos a todo el país</span>
+    </div>
+
+    <div class="dato">
+      <span class="dato__num"><i class="bi bi-chat-dots"></i></span>
+      <span class="dato__txt">Asesoría personalizada</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ CATEGORÍAS ============ -->
+<section class="seccion">
+  <div class="envoltorio">
+
+    <div class="seccion__titulo">
+      <h2>Elegí por estilo</h2>
+      <p>Cada fragancia indica su familia olfativa, el perfil y en qué momento se luce mejor.</p>
+    </div>
+
+    <div class="categorias">
+
+      <a class="categoria" href="catalogo.html?categoria=femenino">
+        <span class="categoria__icono"><i class="bi bi-flower1"></i></span>
+        <div class="categoria__info">
+          <h3>Femeninos</h3>
+          <p>Florales, dulces, frutales y gourmand, del día a la noche.</p>
+          <span class="categoria__cantidad">
+            <span data-conteo="femenino">97</span> fragancias
+          </span>
+        </div>
+        <i class="bi bi-arrow-right categoria__flecha"></i>
+      </a>
+
+      <a class="categoria" href="catalogo.html?categoria=masculino">
+        <span class="categoria__icono"><i class="bi bi-shield-shaded"></i></span>
+        <div class="categoria__info">
+          <h3>Masculinos</h3>
+          <p>Amaderados, frescos, cítricos y especiados para todo el año.</p>
+          <span class="categoria__cantidad">
+            <span data-conteo="masculino">69</span> fragancias
+          </span>
+        </div>
+        <i class="bi bi-arrow-right categoria__flecha"></i>
+      </a>
+
+      <a class="categoria" href="catalogo.html?categoria=unisex">
+        <span class="categoria__icono"><i class="bi bi-infinity"></i></span>
+        <div class="categoria__info">
+          <h3>Unisex</h3>
+          <p>Nicho y árabes, los más intensos y reconocibles del catálogo.</p>
+          <span class="categoria__cantidad">
+            <span data-conteo="unisex">12</span> fragancias
+          </span>
+        </div>
+        <i class="bi bi-arrow-right categoria__flecha"></i>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ DESTACADOS ============ -->
+<section class="seccion seccion--papel">
+  <div class="envoltorio">
+
+    <div class="seccion__titulo">
+      <h2>Las más elegidas</h2>
+      <p>Una selección de las fragancias que más nos consultan.</p>
+    </div>
+
+    <div class="carrusel">
+      <button class="carrusel__flecha carrusel__flecha--prev" id="carruselPrev" aria-label="Anterior">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div class="carrusel__pista" id="carruselPista"></div>
+
+      <button class="carrusel__flecha carrusel__flecha--next" id="carruselNext" aria-label="Siguiente">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+
+    <div class="carrusel__puntos" id="carruselPuntos"></div>
+
+    <div class="mas">
+      <a class="boton boton--linea" href="catalogo.html">
+        Ver todas las fragancias
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ POR QUÉ ELEGIRNOS ============ -->
+<section class="seccion">
+  <div class="envoltorio">
+
+    <div class="seccion__titulo">
+      <h2>Por qué elegirnos</h2>
+      <p>Trabajamos con extracto importado de alta concentración.</p>
+    </div>
+
+    <div class="beneficios">
+
+      <div class="beneficio">
+        <div class="beneficio__info">
+          <h3>Extracto</h3>
+          <strong>importado</strong>
+          <p>Alta concentración y duración.</p>
+        </div>
+        <i class="bi bi-droplet beneficio__icono"></i>
+      </div>
+
+      <div class="beneficio">
+        <div class="beneficio__info">
+          <h3>Equivalencias</h3>
+          <strong>fieles al original</strong>
+          <p>Inspiradas en los grandes clásicos.</p>
+        </div>
+        <i class="bi bi-patch-check beneficio__icono"></i>
+      </div>
+
+      <div class="beneficio">
+        <div class="beneficio__info">
+          <h3>Atención</h3>
+          <strong>personalizada</strong>
+          <p>Te asesoramos por WhatsApp.</p>
+        </div>
+        <i class="bi bi-chat-dots beneficio__icono"></i>
+      </div>
+
+      <div class="beneficio">
+        <div class="beneficio__info">
+          <h3>Envíos</h3>
+          <strong>a todo el país</strong>
+          <p>Correo o entrega en mano.</p>
+        </div>
+        <i class="bi bi-box-seam beneficio__icono"></i>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ============ CITA ============ -->
+<section class="cita">
+  <div class="envoltorio">
+    <p>El perfume es lo primero que se nota y lo último que se olvida.</p>
+  </div>
+</section>
+
+<!-- ============ CÓMO COMPRAR ============ -->
+<section class="seccion" id="como-comprar">
+  <div class="envoltorio">
+
+    <div class="seccion__titulo">
+      <h2>Cómo comprar</h2>
+      <p>Tres pasos, sin registro ni formularios. Todo se coordina por WhatsApp.</p>
+    </div>
+
+    <div class="pasos">
+
+      <div class="paso">
+        <div class="paso__info">
+          <span class="paso__num">PASO 01</span>
+          <h3>Buscá tu fragancia</h3>
+          <p>Entrá al catálogo y filtrá por género, familia olfativa o el nombre que ya conocés.</p>
+        </div>
+        <i class="bi bi-search paso__icono"></i>
+      </div>
+
+      <div class="paso">
+        <div class="paso__info">
+          <span class="paso__num">PASO 02</span>
+          <h3>Consultá el precio</h3>
+          <p>Tocá «Consultar» y se abre WhatsApp con el código del perfume ya escrito. Te pasamos precio y stock.</p>
+        </div>
+        <i class="bi bi-whatsapp paso__icono"></i>
+      </div>
+
+      <div class="paso">
+        <div class="paso__info">
+          <span class="paso__num">PASO 03</span>
+          <h3>Recibí tu pedido</h3>
+          <p>Coordinamos envío o entrega en mano y confirmás el pago. Simple.</p>
+        </div>
+        <i class="bi bi-box-seam paso__icono"></i>
+      </div>
+
+    </div>
+
+    <div class="mas">
+      <a class="boton" href="catalogo.html">Ir al catálogo</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ PIE ============ -->
+<footer class="pie">
+  <div class="envoltorio">
+
+    <div class="pie__grilla">
+
+      <div>
+        <span class="marca__texto">
+          <span>ÂME</span>
+          <small>PARFUMS</small>
+        </span>
+        <p>Fragancias de equivalencia con extracto importado. Atención personalizada por WhatsApp.</p>
+      </div>
+
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="catalogo.html">Todos los perfumes</a></li>
+          <li><a href="catalogo.html?categoria=masculino">Masculinos</a></li>
+          <li><a href="catalogo.html?categoria=femenino">Femeninos</a></li>
+          <li><a href="catalogo.html?categoria=bodysplash">Bodysplash</a></li>
+          <li><a href="catalogo.html?categoria=unisex">Unisex</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>
+            <a target="_blank" rel="noopener" data-whatsapp="Hola! Quiero hacer una consulta." href="#">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+          </li>
+        </ul>
+        <div class="pie__redes" style="margin-top:14px">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pie__legal">
+      <span>© 2026 ÂME Parfums</span>
+    </div>
+
+  </div>
+</footer>
+
+<a class="flotante" target="_blank" rel="noopener"
+   data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#" aria-label="Escribir por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
