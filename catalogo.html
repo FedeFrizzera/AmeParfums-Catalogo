@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Catálogo | ÂME Parfums</title>
+<meta name="description" content="Más de 200 fragancias de equivalencia: femeninas, masculinas y unisex. Buscá por nombre, código o familia olfativa y consultá por WhatsApp.">
+
+<meta property="og:title" content="Catálogo | ÂME Parfums">
+<meta property="og:description" content="Más de 200 fragancias de equivalencia. Buscá por nombre, código o familia olfativa.">
+<meta property="og:image" content="logoo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+
+<link rel="icon" type="image/jpeg" href="logoo.jpeg">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =======================================================
+   ÂME PARFUMS — estilos del CATÁLOGO
+   ======================================================= */
+
+:root {
+  --piedra:      #EDE9E3;
+  --piedra-2:    #E3DED6;
+  --papel:       #FBFAF8;
+  --tinta:       #1A1916;
+  --tinta-suave: #6E6860;
+  --linea:       #D8D2C8;
+  --verde:       #24362F;
+  --verde-claro: #3D584C;
+
+  --femenino:    #7E4F58;
+  --masculino:   #2C3E4A;
+  --unisex:      #4C5540;
+
+  --ancho: 1180px;
+  --radio: 3px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--tinta);
+  background: var(--piedra);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid var(--verde);
+  outline-offset: 3px;
+}
+
+.envoltorio {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--verde);
+  background: var(--verde);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  transition: background .25s ease, color .25s ease;
+}
+.boton:hover { background: var(--verde-claro); border-color: var(--verde-claro); }
+
+.boton--linea {
+  background: transparent;
+  color: var(--tinta);
+  border-color: var(--linea);
+}
+.boton--linea:hover { background: var(--tinta); color: var(--papel); border-color: var(--tinta); }
+
+/* =======================================================
+   BARRA DE NAVEGACIÓN
+   ======================================================= */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(237, 233, 227, .85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 72px;
+}
+
+.marca { display: flex; align-items: center; gap: 12px; }
+
+.marca__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.marca__texto span {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  letter-spacing: .14em;
+  line-height: 1;
+}
+.marca__texto small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: .38em;
+  color: var(--tinta-suave);
+  margin-top: 4px;
+}
+
+.menu { display: flex; align-items: center; gap: 30px; }
+
+.menu > a {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  transition: color .2s;
+}
+.menu > a:hover,
+.menu > a[aria-current="page"] { color: var(--tinta); }
+
+.menu .boton { color: #fff; padding: 10px 20px; font-size: 12.5px; }
+.menu .boton:hover { color: #fff; }
+
+.barra__toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 8px 14px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---------- Submenú ---------- */
+
+.menu__submenu { position: relative; }
+
+.menu__submenu-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  cursor: pointer;
+  transition: color .2s;
+}
+.menu__submenu-boton:hover,
+.menu__submenu-boton[aria-expanded="true"] { color: var(--tinta); }
+.menu__submenu-boton i { font-size: 11px; transition: transform .25s ease; }
+.menu__submenu-boton[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.menu__submenu-lista {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 220px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 12px 32px rgba(26,25,22,.10);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+  z-index: 60;
+}
+.menu__submenu-lista a {
+  padding: 10px 20px;
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  transition: background .2s, color .2s;
+}
+.menu__submenu-lista a:hover { background: var(--piedra); color: var(--tinta); }
+
+.menu__submenu.abierto .menu__submenu-lista,
+.menu__submenu:hover .menu__submenu-lista {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =======================================================
+   CABECERA DEL CATÁLOGO
+   ======================================================= */
+
+.catalogo__cabecera { padding: 80px 0 48px; }
+
+.catalogo__cabecera-grilla {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.catalogo__cabecera h1 {
+  font-size: clamp(42px, 5.6vw, 72px);
+  margin-bottom: 16px;
+}
+
+.catalogo__cabecera p {
+  color: var(--tinta-suave);
+  max-width: 52ch;
+  font-size: 15px;
+}
+
+.catalogo__cabecera-logo {
+  display: flex;
+  aspect-ratio: 8 / 5;
+  align-items: center;
+  justify-content: center;
+}
+
+.catalogo__cabecera-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% center;
+  display: block;
+  /* Difuminado en los 4 bordes con máscara */
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    #000 55%,
+    transparent 100%
+  );
+          mask-image: radial-gradient(
+    ellipse at center,
+    #000 55%,
+    transparent 100%
+  );
+}
+
+/* =======================================================
+   FILTROS
+   ======================================================= */
+
+.filtros {
+  position: sticky;
+  top: 72px;
+  z-index: 30;
+  background: rgba(237, 233, 227, .92);
+  backdrop-filter: blur(14px);
+  border-block: 1px solid var(--linea);
+  padding: 16px 0;
+  margin-bottom: 44px;
+}
+
+.filtros__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.filtros__fila--principal {
+  margin-bottom: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--linea);
+}
+
+.filtros__fila--secundaria {
+  align-items: center;
+}
+
+.buscador {
+  flex: 1 1 260px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 10px 18px;
+}
+.buscador input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+}
+.buscador i { color: var(--tinta-suave); }
+
+.pastillas { display: flex; flex-wrap: wrap; gap: 6px; }
+.pastilla {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--tinta-suave);
+  transition: .2s;
+}
+.pastilla:hover { border-color: var(--tinta); color: var(--tinta); }
+.pastilla[aria-pressed="true"] {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--papel);
+}
+
+.selector {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 10px 16px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--tinta-suave);
+  outline: none;
+}
+
+.conteo {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+/* =======================================================
+   GRILLA
+   ======================================================= */
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  overflow: hidden;
+  text-align: left;
+  transition: border-color .25s ease, transform .25s ease;
+}
+.tarjeta:hover { border-color: var(--tinta); transform: translateY(-3px); }
+
+.tarjeta__visual {
+  position: relative;
+  height: 220px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--piedra-2);
+  overflow: hidden;
+}
+
+.tarjeta__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+.tarjeta__etiqueta {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.9);
+  color: var(--tinta-suave);
+  z-index: 2;
+}
+
+.frasco {
+  width: 86px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.frasco__tapa {
+  width: 26px;
+  height: 20px;
+  background: var(--verde);
+  border-radius: 2px 2px 0 0;
+}
+.frasco__cuello { width: 16px; height: 9px; background: var(--verde-claro); }
+.frasco__cuerpo {
+  width: 100%;
+  height: 112px;
+  border-radius: 6px 6px 3px 3px;
+  background: linear-gradient(160deg, #fff 0%, var(--piedra) 45%, var(--piedra-2) 100%);
+  border: 1px solid var(--linea);
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frasco__codigo {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  color: var(--tinta-suave);
+  border-block: 1px solid var(--linea);
+  padding: 5px 12px;
+}
+
+.tarjeta--masculino .frasco__tapa { background: var(--masculino); }
+.tarjeta--femenino  .frasco__tapa { background: var(--femenino); }
+.tarjeta--unisex    .frasco__tapa { background: var(--unisex); }
+
+.tarjeta__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 22px 24px;
+}
+.tarjeta__cuerpo h3 { font-size: 24px; margin-bottom: 4px; }
+.tarjeta__ref { font-size: 12.5px; color: var(--tinta-suave); }
+.tarjeta__familia {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin: 14px 0 6px;
+}
+.tarjeta__perfil { font-size: 13.5px; color: var(--tinta-suave); flex: 1; }
+.tarjeta__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--linea);
+  font-size: 12px;
+  color: var(--tinta-suave);
+}
+.tarjeta__ver {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--verde);
+  padding: 0 0 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--verde);
+}
+.tarjeta__ver:hover { color: var(--verde-claro); border-color: var(--verde-claro); }
+
+.vacio { text-align: center; padding: 80px 0; }
+.vacio h3 { font-size: 30px; margin-bottom: 8px; }
+.vacio p { color: var(--tinta-suave); }
+
+.mas { display: flex; justify-content: center; margin-top: 52px; }
+
+/* =======================================================
+   FICHA
+   ======================================================= */
+
+.ficha {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1000px, 94vw);
+  max-height: 90vh;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  background: var(--papel);
+  border-radius: var(--radio);
+  color: var(--tinta);
+}
+.ficha::backdrop { background: rgba(26, 25, 22, .55); backdrop-filter: blur(3px); }
+
+.ficha__interior {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.ficha__visual {
+  background: var(--papel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.ficha__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.ficha__texto { padding: 34px 34px 30px; }
+
+.ficha__codigo {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.ficha__inspirado {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-top: 16px;
+  margin-bottom: 2px;
+}
+
+.ficha__texto h3 { font-size: 38px; margin: 0 0 2px; }
+
+.ficha__ref {
+  color: var(--tinta-suave);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.ficha__lista { border-top: 1px solid var(--linea); margin-bottom: 20px; }
+.ficha__lista div {
+  display: flex;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--linea);
+  font-size: 14px;
+}
+.ficha__lista dt { min-width: 92px; color: var(--tinta-suave); font-size: 13px; }
+.ficha__lista dd { flex: 1; }
+
+/* ---------- Precios en la ficha ---------- */
+
+.ficha__precios {
+  border-top: 1px solid var(--linea);
+  padding-top: 18px;
+  margin-bottom: 22px;
+}
+
+.ficha__precios h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  margin-bottom: 12px;
+}
+
+.ficha__precios ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.ficha__precios li {
+  background: var(--piedra);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.ficha__precio-ml {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
+
+.ficha__precio-valor {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--tinta);
+  line-height: 1;
+}
+
+.ficha__nota {
+  background: var(--piedra);
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--tinta-suave);
+  margin-bottom: 22px;
+}
+.ficha__acciones { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.ficha__cerrar {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(255,255,255,.85);
+  border: 1px solid var(--linea);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  line-height: 1;
+  font-size: 16px;
+  z-index: 3;
+}
+
+/* =======================================================
+   PIE
+   ======================================================= */
+
+.pie { background: var(--tinta); color: #CFC9C0; padding: 80px 0 32px; margin-top: 80px; }
+.pie a { color: #CFC9C0; }
+.pie__grilla {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+.pie .marca__texto span { color: #fff; }
+.pie p { font-size: 14px; margin-top: 16px; max-width: 34ch; }
+.pie h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.pie ul { list-style: none; display: grid; gap: 10px; font-size: 14px; }
+.pie__redes { display: flex; gap: 16px; font-size: 19px; }
+
+.pie__legal {
+  border-top: 1px solid #38342E;
+  margin-top: 60px;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #8D867C;
+}
+
+/* ---------- Flotante ---------- */
+
+.flotante {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  box-shadow: 0 8px 24px rgba(26,25,22,.22);
+  transition: transform .25s ease;
+}
+.flotante:hover { transform: scale(1.05); }
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+
+@media (max-width: 1000px) {
+  .grilla { grid-template-columns: repeat(3, 1fr); }
+  .pie__grilla { grid-template-columns: 1fr 1fr; }
+  .catalogo__cabecera-grilla { grid-template-columns: 1fr; gap: 40px; }
+  .catalogo__cabecera-logo img { max-width: 340px; margin-inline: auto; }
+}
+
+@media (max-width: 900px) {
+  .ficha__interior { grid-template-columns: 1fr; }
+  .ficha__visual { padding: 0; }
+  .ficha__visual img { max-height: 45vh; }
+}
+
+@media (max-width: 820px) {
+  .barra__toggle { display: block; }
+  .menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linea);
+    padding: 10px 28px 22px;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  .menu.abierto { display: flex; }
+  .menu > a { padding: 14px 0; border-bottom: 1px solid var(--linea); }
+  .menu .boton { justify-content: center; margin-top: 14px; border-bottom: none; }
+  .barra { position: relative; }
+
+  .menu__submenu { width: 100%; }
+  .menu__submenu-boton {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--linea);
+    justify-content: space-between;
+  }
+  .menu__submenu-lista {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s ease;
+    background: transparent;
+  }
+  .menu__submenu.abierto .menu__submenu-lista { max-height: 400px; }
+  .menu__submenu-lista a {
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .filtros { top: 0; padding: 14px 0; margin-bottom: 32px; }
+
+  .filtros__fila--principal {
+    margin-bottom: 8px;
+    padding-bottom: 10px;
+  }
+
+  .filtros__fila--secundaria {
+    gap: 8px;
+  }
+
+  .conteo {
+    margin-left: 0;
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .catalogo__cabecera { padding: 60px 0 36px; }
+  .catalogo__cabecera-grilla {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .catalogo__cabecera p {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .catalogo__cabecera-logo img {
+    max-width: 300px;
+    margin-inline: auto;
+  }
+  .catalogo__cabecera h1 { font-size: clamp(36px, 6vw, 52px); }
+
+  .buscador { flex: 1 1 100%; }
+
+  .pastillas {
+    flex: 1 1 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .pastillas::-webkit-scrollbar { display: none; }
+  .pastilla { flex-shrink: 0; }
+
+  .selector { flex: 1 1 calc(50% - 5px); }
+  .grilla { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .ficha { width: min(680px, 94vw); }
+  .ficha__texto { padding: 26px 24px 24px; }
+  .ficha__texto h3 { font-size: 30px; }
+
+  .pie { padding: 60px 0 28px; margin-top: 56px; }
+  .pie__grilla { grid-template-columns: 1fr; gap: 32px; }
+  .pie__legal { margin-top: 40px; padding-top: 18px; flex-direction: column; }
+}
+
+@media (max-width: 540px) {
+  .envoltorio { padding-inline: 20px; }
+  .catalogo__cabecera { padding: 48px 0 28px; }
+  .catalogo__cabecera h1 { font-size: clamp(30px, 8vw, 42px); }
+  .catalogo__cabecera p { font-size: 14px; }
+  .catalogo__cabecera-logo img { max-width: 240px; }
+
+  .filtros { padding: 12px 0; }
+  .selector { flex: 1 1 100%; }
+  .conteo { font-size: 11px; }
+  .grilla { grid-template-columns: 1fr; gap: 14px; }
+  .tarjeta__visual { height: 200px; }
+  .ficha__visual img { max-height: 38vh; }
+  .ficha__texto { padding: 22px 20px 22px; }
+  .ficha__texto h3 { font-size: 26px; }
+  .ficha__lista dt { min-width: 78px; font-size: 12.5px; }
+  .ficha__lista dd { font-size: 13px; }
+
+  .ficha__precios ul {
+    grid-template-columns: 1fr;
+  }
+  .ficha__precios li {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .pie { padding: 48px 0 24px; margin-top: 48px; }
+  .pie__legal { font-size: 11px; }
+  .flotante { width: 48px; height: 48px; font-size: 22px; right: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BARRA ============ -->
+<header class="barra">
+  <div class="envoltorio barra__fila">
+
+    <a class="marca" href="index.html">
+      <img class="marca__logo" src="logoo.jpeg" alt="ÂME Parfums" onerror="this.remove()">
+      <span class="marca__texto">
+        <span>ÂME</span>
+        <small>PARFUMS</small>
+      </span>
+    </a>
+
+    <button class="barra__toggle" id="abrirMenu" aria-expanded="false" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="menu" id="menu">
+      <a href="index.html">Inicio</a>
+
+      <div class="menu__submenu">
+        <button class="menu__submenu-boton" aria-haspopup="true" aria-expanded="false">
+          Catálogo <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="menu__submenu-lista">
+          <a href="catalogo.html">Todos los perfumes</a>
+          <a href="catalogo.html?categoria=masculino">Masculinos</a>
+          <a href="catalogo.html?categoria=femenino">Femeninos</a>
+          <a href="catalogo.html?categoria=bodysplash">Bodysplash</a>
+          <a href="catalogo.html?categoria=unisex">Unisex</a>
+        </div>
+      </div>
+
+      <a href="index.html#como-comprar">Cómo comprar</a>
+      <a href="nosotros.html">Nosotros</a>
+
+      <a class="boton" target="_blank" rel="noopener"
+         data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#">
+        <i class="bi bi-whatsapp"></i> Escribinos
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ============ CABECERA ============ -->
+<section class="catalogo__cabecera">
+  <div class="envoltorio catalogo__cabecera-grilla">
+
+    <div class="catalogo__cabecera-texto">
+      <h1>Catálogo de fragancias</h1>
+      <p>
+        Buscá por nombre, por la marca en la que está inspirada o por el código del extracto.
+        Tocá cualquier fragancia para ver la ficha completa.
+        (Imágenes de diseñador de referencia, extracto de las fragancias importadas en envase propio)
+      </p>
+    </div>
+
+    <div class="catalogo__cabecera-logo">
+      <img src="LogoPerfumes.jpeg" alt="ÂME Parfums" loading="eager">
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FILTROS ============ -->
+<div class="filtros">
+  <div class="envoltorio">
+
+    <!-- Fila 1: buscador + pastillas -->
+    <div class="filtros__fila filtros__fila--principal">
+      <label class="buscador">
+        <i class="bi bi-search"></i>
+        <input type="search" id="buscador" placeholder="Buscar: Sauvage, Dior, N148…" aria-label="Buscar fragancia">
+      </label>
+
+      <div class="pastillas">
+        <button class="pastilla" data-categoria="todos" aria-pressed="true">Todos</button>
+        <button class="pastilla" data-categoria="femenino" aria-pressed="false">Femeninos</button>
+        <button class="pastilla" data-categoria="bodysplash" aria-pressed="false">Bodysplash</button>
+        <button class="pastilla" data-categoria="masculino" aria-pressed="false">Masculinos</button>
+        <button class="pastilla" data-categoria="unisex" aria-pressed="false">Unisex</button>
+      </div>
+    </div>
+
+    <!-- Fila 2: selectores + contador -->
+    <div class="filtros__fila filtros__fila--secundaria">
+      <select class="selector" id="familia" aria-label="Familia olfativa">
+        <option value="todas">Todas las familias</option>
+      </select>
+
+      <select class="selector" id="orden" aria-label="Ordenar">
+        <option value="catalogo">Orden del catálogo</option>
+        <option value="nombre">Nombre A–Z</option>
+        <option value="referencia">Marca de referencia</option>
+      </select>
+
+      <p class="conteo" id="conteo"></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ GRILLA ============ -->
+<main class="envoltorio" style="padding-bottom:90px">
+
+  <div class="grilla" id="grilla"></div>
+
+  <div class="vacio" id="vacio" hidden>
+    <h3>No encontramos esa fragancia</h3>
+    <p>Probá con otro nombre, con la marca original o con el código del extracto.</p>
+  </div>
+
+  <div class="mas">
+    <button class="boton boton--linea" id="verMas" hidden>Ver más fragancias</button>
+  </div>
+
+</main>
+
+<dialog class="ficha" id="ficha"></dialog>
+
+<!-- ============ PIE ============ -->
+<footer class="pie">
+  <div class="envoltorio">
+
+    <div class="pie__grilla">
+
+      <div>
+        <span class="marca__texto">
+          <span>ÂME</span>
+          <small>PARFUMS</small>
+        </span>
+        <p>Fragancias de equivalencia con extracto importado. Atención personalizada por WhatsApp.</p>
+      </div>
+
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="catalogo.html">Todos los perfumes</a></li>
+          <li><a href="catalogo.html?categoria=masculino">Masculinos</a></li>
+          <li><a href="catalogo.html?categoria=femenino">Femeninos</a></li>
+          <li><a href="catalogo.html?categoria=bodysplash">Bodysplash</a></li>
+          <li><a href="catalogo.html?categoria=unisex">Unisex</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>
+            <a target="_blank" rel="noopener" data-whatsapp="Hola! Quiero hacer una consulta." href="#">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+          </li>
+        </ul>
+        <div class="pie__redes" style="margin-top:14px">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pie__legal">
+      <span>© 2026 ÂME Parfums</span>
+    </div>
+
+  </div>
+</footer>
+
+<a class="flotante" target="_blank" rel="noopener"
+   data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#" aria-label="Escribir por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="js/datos.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
