@@ -733,7 +733,7 @@ button { font: inherit; cursor: pointer; }
    RESPONSIVE
    ======================================================= */
 
-@media (max-width: 1000px) {
+   @media (max-width: 1000px) {
   .grilla { grid-template-columns: repeat(3, 1fr); }
   .pie__grilla { grid-template-columns: 1fr 1fr; }
   .catalogo__cabecera-grilla { grid-template-columns: 1fr; gap: 40px; }
@@ -742,8 +742,19 @@ button { font: inherit; cursor: pointer; }
 
 @media (max-width: 900px) {
   .ficha__interior { grid-template-columns: 1fr; }
-  .ficha__visual { padding: 0; }
-  .ficha__visual img { max-height: 45vh; }
+
+  .ficha__visual {
+    padding: 20px;
+    background: var(--papel);
+  }
+  .ficha__visual img {
+    width: 100%;
+    height: auto;
+    max-height: 50vh;
+    object-fit: contain;
+    object-position: center;
+    border-radius: var(--radio);
+  }
 }
 
 @media (max-width: 820px) {
@@ -796,22 +807,6 @@ button { font: inherit; cursor: pointer; }
   }
 
   .filtros { top: 0; padding: 14px 0; margin-bottom: 32px; }
-
-  .filtros__fila--principal {
-    margin-bottom: 8px;
-    padding-bottom: 10px;
-  }
-
-  .filtros__fila--secundaria {
-    gap: 8px;
-  }
-
-  .conteo {
-    margin-left: 0;
-    width: 100%;
-    font-size: 11px;
-  }
-
   .catalogo__cabecera { padding: 60px 0 36px; }
   .catalogo__cabecera-grilla {
     grid-template-columns: 1fr;
@@ -864,15 +859,20 @@ button { font: inherit; cursor: pointer; }
   .conteo { font-size: 11px; }
   .grilla { grid-template-columns: 1fr; gap: 14px; }
   .tarjeta__visual { height: 200px; }
-  .ficha__visual img { max-height: 38vh; }
+
+  .ficha__visual {
+    padding: 16px;
+  }
+  .ficha__visual img {
+    max-height: 40vh;
+  }
+
   .ficha__texto { padding: 22px 20px 22px; }
   .ficha__texto h3 { font-size: 26px; }
   .ficha__lista dt { min-width: 78px; font-size: 12.5px; }
   .ficha__lista dd { font-size: 13px; }
 
-  .ficha__precios ul {
-    grid-template-columns: 1fr;
-  }
+  .ficha__precios ul { grid-template-columns: 1fr; }
   .ficha__precios li {
     flex-direction: row;
     justify-content: space-between;
