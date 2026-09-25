@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nosotros | ÂME Parfums</title>
+<meta name="description" content="Conocé ÂME Parfums: fragancias de equivalencia con extracto importado. Preguntas frecuentes, atención personalizada y envíos a todo el país.">
+
+<meta property="og:title" content="Nosotros | ÂME Parfums">
+<meta property="og:description" content="Conocé ÂME Parfums. Fragancias de equivalencia con extracto importado.">
+<meta property="og:image" content="logoo.jpeg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+
+<link rel="icon" type="image/jpeg" href="logoo.jpeg">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =======================================================
+   ÂME PARFUMS — estilos de NOSOTROS
+   ======================================================= */
+
+:root {
+  --piedra:      #EDE9E3;
+  --piedra-2:    #E3DED6;
+  --papel:       #FBFAF8;
+  --tinta:       #1A1916;
+  --tinta-suave: #6E6860;
+  --linea:       #D8D2C8;
+  --verde:       #24362F;
+  --verde-claro: #3D584C;
+  --dorado:      #C9A961;
+  --ancho: 1180px;
+  --radio: 3px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--tinta);
+  background: var(--piedra);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button { font: inherit; cursor: pointer; }
+
+:focus-visible { outline: 2px solid var(--verde); outline-offset: 3px; }
+
+.envoltorio {
+  width: 100%;
+  max-width: var(--ancho);
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid var(--verde);
+  background: var(--verde);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 100px;
+  transition: background .25s ease;
+}
+.boton:hover { background: var(--verde-claro); border-color: var(--verde-claro); }
+
+/* =======================================================
+   BARRA DE NAVEGACIÓN
+   ======================================================= */
+
+.barra {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(237, 233, 227, .85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--linea);
+}
+
+.barra__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 72px;
+}
+
+.marca { display: flex; align-items: center; gap: 12px; }
+
+.marca__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.marca__texto span {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 22px;
+  letter-spacing: .14em;
+  line-height: 1;
+}
+.marca__texto small {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 8.5px;
+  font-weight: 500;
+  letter-spacing: .38em;
+  color: var(--tinta-suave);
+  margin-top: 4px;
+}
+
+.menu { display: flex; align-items: center; gap: 30px; }
+
+.menu > a {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  transition: color .2s;
+}
+.menu > a:hover,
+.menu > a[aria-current="page"] { color: var(--tinta); }
+
+.menu .boton { color: #fff; padding: 10px 20px; font-size: 12.5px; }
+
+.barra__toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--linea);
+  border-radius: 100px;
+  padding: 8px 14px;
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* ---------- Submenú ---------- */
+
+.menu__submenu { position: relative; }
+
+.menu__submenu-boton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--tinta-suave);
+  padding-block: 4px;
+  cursor: pointer;
+  transition: color .2s;
+}
+.menu__submenu-boton:hover,
+.menu__submenu-boton[aria-expanded="true"] { color: var(--tinta); }
+.menu__submenu-boton i { font-size: 11px; transition: transform .25s ease; }
+.menu__submenu-boton[aria-expanded="true"] i { transform: rotate(180deg); }
+
+.menu__submenu-lista {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 220px;
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 12px 32px rgba(26,25,22,.10);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s, transform .25s, visibility .25s;
+  z-index: 60;
+}
+.menu__submenu-lista a {
+  padding: 10px 20px;
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  transition: background .2s, color .2s;
+}
+.menu__submenu-lista a:hover { background: var(--piedra); color: var(--tinta); }
+
+.menu__submenu.abierto .menu__submenu-lista,
+.menu__submenu:hover .menu__submenu-lista {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =======================================================
+   NOSOTROS — CABECERA CON LOGO
+   ======================================================= */
+
+.nosotros__cabecera {
+  padding: 100px 0 60px;
+  background: var(--papel);
+  border-bottom: 1px solid var(--linea);
+}
+
+.nosotros__cabecera-grilla {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.nosotros__cabecera-texto h1 {
+  font-size: clamp(44px, 6vw, 80px);
+  margin-bottom: 20px;
+}
+
+.nosotros__cabecera-texto p {
+  color: var(--tinta-suave);
+  max-width: 56ch;
+  font-size: 16px;
+}
+
+.nosotros__cabecera-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nosotros__cabecera-logo img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  mix-blend-mode: multiply;
+}
+
+/* =======================================================
+   NOSOTROS — SECCIÓN PRINCIPAL
+   ======================================================= */
+
+.nosotros { padding: 100px 0; }
+
+.nosotros__grilla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.nosotros__imagen {
+  border-radius: var(--radio);
+  overflow: hidden;
+  background: var(--piedra-2);
+}
+.nosotros__imagen img { width: 100%; height: auto; display: block; }
+
+.nosotros__texto h2 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin-bottom: 20px;
+}
+.nosotros__texto p {
+  color: var(--tinta-suave);
+  font-size: 15.5px;
+  margin-bottom: 18px;
+}
+
+/* =======================================================
+   VALORES
+   ======================================================= */
+
+.valores { padding: 80px 0 100px; background: var(--papel); }
+
+.valores__grilla {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.valor {
+  padding: 32px 28px;
+  background: var(--piedra);
+  border-radius: 10px;
+}
+.valor i {
+  font-size: 28px;
+  color: var(--dorado);
+  display: block;
+  margin-bottom: 14px;
+}
+.valor h3 { font-size: 24px; margin-bottom: 8px; }
+.valor p { font-size: 14px; color: var(--tinta-suave); }
+
+/* =======================================================
+   CITA
+   ======================================================= */
+
+.cita {
+  background: var(--verde);
+  color: #fff;
+  padding: 17px 0;
+  text-align: center;
+}
+.cita p {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(20px, 2.4vw, 44px);
+  font-style: italic;
+  line-height: 1.25;
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+/* =======================================================
+   PREGUNTAS FRECUENTES — estilo minimalista
+   ======================================================= */
+
+.faq {
+  padding: 100px 0;
+  background: var(--piedra);
+}
+
+.faq__titulo {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 32px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 40px;
+}
+
+.faq__titulo h2 {
+  font-size: clamp(34px, 4vw, 46px);
+}
+
+.faq__titulo p {
+  color: var(--tinta-suave);
+  font-size: 14.5px;
+  max-width: 42ch;
+}
+
+.faq__grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.faq__item {
+  background: var(--papel);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0;
+  transition: border-color .25s ease, background .25s ease;
+}
+
+.faq__item:hover {
+  border-color: var(--linea);
+}
+
+.faq__item[open] {
+  border-color: var(--linea);
+}
+
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px 26px;
+  cursor: pointer;
+  list-style: none;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--tinta);
+  transition: color .25s ease;
+}
+
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::marker { display: none; }
+
+.faq__item summary:hover { color: var(--verde); }
+
+.faq__item summary i {
+  font-size: 20px;
+  color: var(--dorado);
+  flex-shrink: 0;
+  transition: transform .3s ease;
+}
+
+.faq__item[open] summary i {
+  transform: rotate(45deg);
+}
+
+.faq__contenido {
+  padding: 0 26px 24px 26px;
+  color: var(--tinta-suave);
+  font-size: 14.5px;
+  line-height: 1.65;
+  animation: faqAbrir .3s ease;
+}
+
+.faq__contenido p { margin: 0; }
+
+@keyframes faqAbrir {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =======================================================
+   PIE
+   ======================================================= */
+
+.pie { background: var(--tinta); color: #CFC9C0; padding: 80px 0 32px; }
+.pie a { color: #CFC9C0; }
+.pie__grilla {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+}
+.pie .marca__texto span { color: #fff; }
+.pie p { font-size: 14px; margin-top: 16px; max-width: 34ch; }
+.pie h4 {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 18px;
+}
+.pie ul { list-style: none; display: grid; gap: 10px; font-size: 14px; }
+.pie__redes { display: flex; gap: 16px; font-size: 19px; }
+.pie__legal {
+  border-top: 1px solid #38342E;
+  margin-top: 60px;
+  padding-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11.5px;
+  color: #8D867C;
+}
+
+/* ---------- Flotante ---------- */
+
+.flotante {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--verde);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  box-shadow: 0 8px 24px rgba(26,25,22,.22);
+  transition: transform .25s;
+}
+.flotante:hover { transform: scale(1.05); }
+
+/* =======================================================
+   RESPONSIVE
+   ======================================================= */
+
+@media (max-width: 1000px) {
+  .nosotros__cabecera-grilla { grid-template-columns: 1fr; gap: 40px; }
+  .nosotros__cabecera-logo img { max-width: 400px; margin-inline: auto; }
+  .nosotros__grilla { grid-template-columns: 1fr; gap: 40px; }
+  .valores__grilla { grid-template-columns: repeat(2, 1fr); }
+  .faq__grilla { grid-template-columns: 1fr; gap: 14px; }
+}
+
+@media (max-width: 820px) {
+  .barra__toggle { display: block; }
+  .menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--papel);
+    border-bottom: 1px solid var(--linea);
+    padding: 10px 28px 22px;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  .menu.abierto { display: flex; }
+  .menu > a { padding: 14px 0; border-bottom: 1px solid var(--linea); }
+  .menu .boton { justify-content: center; margin-top: 14px; border-bottom: none; }
+  .barra { position: relative; }
+
+  .menu__submenu { width: 100%; }
+  .menu__submenu-boton {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--linea);
+    justify-content: space-between;
+  }
+  .menu__submenu-lista {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .35s;
+    background: transparent;
+  }
+  .menu__submenu.abierto .menu__submenu-lista { max-height: 400px; }
+  .menu__submenu-lista a {
+    padding: 12px 0 12px 20px;
+    border-bottom: 1px solid var(--linea);
+  }
+
+  .nosotros__cabecera { padding: 64px 0 44px; }
+  .nosotros__cabecera-grilla {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    text-align: center;
+  }
+  .nosotros__cabecera-texto p {
+    max-width: 100%;
+    margin-inline: auto;
+  }
+  .nosotros__cabecera-logo img {
+    max-width: 340px;
+    margin-inline: auto;
+  }
+
+  .nosotros { padding: 64px 0; }
+  .valores { padding: 56px 0 64px; }
+  .valores__grilla { grid-template-columns: 1fr; }
+
+  .cita { padding: 60px 0; }
+
+  .faq { padding: 72px 0; }
+  .faq__titulo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .faq__titulo h2 { font-size: clamp(28px, 5vw, 36px); }
+  .faq__item summary { font-size: 19px; padding: 20px 22px; }
+  .faq__item summary i { font-size: 18px; }
+  .faq__contenido { padding: 0 22px 20px 22px; font-size: 14px; }
+
+  .pie { padding: 60px 0 28px; }
+  .pie__grilla { grid-template-columns: 1fr; gap: 32px; }
+  .pie__legal { margin-top: 40px; flex-direction: column; }
+}
+
+@media (max-width: 540px) {
+  .envoltorio { padding-inline: 20px; }
+  .nosotros__cabecera { padding: 48px 0 36px; }
+  .nosotros__cabecera-logo img { max-width: 260px; }
+  .valor { padding: 26px 22px; }
+
+  .faq { padding: 56px 0; }
+  .faq__item summary { font-size: 17px; padding: 18px 20px; gap: 12px; }
+  .faq__contenido { padding: 0 20px 18px 20px; font-size: 13.5px; }
+
+  .flotante { width: 48px; height: 48px; font-size: 22px; right: 16px; bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ BARRA ============ -->
+<header class="barra">
+  <div class="envoltorio barra__fila">
+
+    <a class="marca" href="index.html">
+      <img class="marca__logo" src="logoo.jpeg" alt="ÂME Parfums" onerror="this.remove()">
+      <span class="marca__texto">
+        <span>ÂME</span>
+        <small>PARFUMS</small>
+      </span>
+    </a>
+
+    <button class="barra__toggle" id="abrirMenu" aria-expanded="false" aria-label="Abrir menú">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="menu" id="menu">
+      <a href="index.html">Inicio</a>
+
+      <div class="menu__submenu">
+        <button class="menu__submenu-boton" aria-haspopup="true" aria-expanded="false">
+          Catálogo <i class="bi bi-chevron-down"></i>
+        </button>
+        <div class="menu__submenu-lista">
+          <a href="catalogo.html">Todos los perfumes</a>
+          <a href="catalogo.html?categoria=masculino">Masculinos</a>
+          <a href="catalogo.html?categoria=femenino">Femeninos</a>
+          <a href="catalogo.html?categoria=bodysplash">Bodysplash</a>
+          <a href="catalogo.html?categoria=unisex">Unisex</a>
+        </div>
+      </div>
+
+      <a href="index.html#como-comprar">Cómo comprar</a>
+      <a href="nosotros.html" aria-current="page">Nosotros</a>
+
+      <a class="boton" target="_blank" rel="noopener"
+         data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#">
+        <i class="bi bi-whatsapp"></i> Escribinos
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- ============ CABECERA ============ -->
+<section class="nosotros__cabecera">
+  <div class="envoltorio nosotros__cabecera-grilla">
+
+    <div class="nosotros__cabecera-texto">
+      <h1>Nosotros</h1>
+      <p>
+        Somos ÂME Parfums: una tienda de fragancias de equivalencia con extracto importado.
+        Nacimos con la idea de acercar los aromas más reconocidos de la perfumería a un
+        precio justo, sin perder la intensidad ni la duración.
+      </p>
+    </div>
+
+    <div class="nosotros__cabecera-logo">
+      <img src="logoo.jpeg" alt="ÂME Parfums" loading="eager">
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ NOSOTROS ============ -->
+<section class="nosotros">
+  <div class="envoltorio nosotros__grilla">
+
+    <div class="nosotros__imagen">
+      <img src="LogoPerfumes.jpeg" alt="Frascos ÂME Parfums">
+    </div>
+
+    <div class="nosotros__texto">
+      <h2>Pasión por los buenos aromas</h2>
+      <p>
+        Cada fragancia de nuestro catálogo está desarrollada a partir del análisis
+        olfativo del original, con una concentración de extracto pensada para que
+        el aroma se sostenga durante toda la jornada.
+      </p>
+      <p>
+        Trabajamos con proveedores de confianza y atendemos personalmente cada consulta.
+        No vendemos a ciegas: te ayudamos a elegir según lo que ya te gusta, tu estilo
+        y el momento en que querés usar el perfume.
+      </p>
+      <p>
+        Enviamos a todo el país y coordinamos entregas en mano cuando es posible.
+        Todo se gestiona por WhatsApp, sin registros ni formularios.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ VALORES ============ -->
+<section class="valores">
+  <div class="envoltorio">
+    <div class="valores__grilla">
+
+      <div class="valor">
+        <i class="bi bi-droplet-half"></i>
+        <h3>Extracto importado</h3>
+        <p>Alta concentración de fragancia para una duración real durante todo el día.</p>
+      </div>
+
+      <div class="valor">
+        <i class="bi bi-patch-check"></i>
+        <h3>Equivalencias fieles</h3>
+        <p>Inspiradas en los grandes clásicos de la perfumería, con un perfil muy similar.</p>
+      </div>
+
+      <div class="valor">
+        <i class="bi bi-chat-heart"></i>
+        <h3>Atención personalizada</h3>
+        <p>Te asesoramos por WhatsApp para que encuentres el perfume que mejor va con vos.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CITA ============ -->
+<section class="cita">
+  <div class="envoltorio">
+    <p>El perfume es lo primero que se nota y lo último que se olvida.</p>
+  </div>
+</section>
+
+<!-- ============ PREGUNTAS FRECUENTES ============ -->
+<section class="faq">
+  <div class="envoltorio">
+
+    <div class="faq__titulo">
+      <h2>Preguntas frecuentes</h2>
+      <p>Todo lo que suelen consultarnos antes de comprar.</p>
+    </div>
+
+    <div class="faq__grilla">
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Qué son las fragancias de equivalencia?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Son perfumes inspirados en los grandes clásicos de la perfumería. Se elaboran
+          con extracto importado de alta concentración para lograr un aroma muy similar al
+          original, pero a un precio mucho más accesible.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Qué son las familias olfativas?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Las familias olfativas clasifican los perfumes según los aromas y notas que
+          predominan en su composición. Nos ayudan a entender rápidamente qué tipo de
+          perfume es y qué sensaciones puede transmitir.</p>
+          <p><br>🌸 <strong>Floral</strong> — Rosa, jazmín, peonía, violeta. Aromas delicados, elegantes y románticos.</p>
+          <p>🍊 <strong>Cítrica</strong> — Limón, naranja, mandarina, bergamota. Fresca, liviana y energética.</p>
+          <p>🍓 <strong>Frutal</strong> — Manzana, pera, durazno, frutos rojos. Dulce, alegre y juvenil.</p>
+          <p>🌿 <strong>Aromática</strong> — Lavanda, romero, salvia y otras hierbas. Fresca, herbal y natural.</p>
+          <p>🌱 <strong>Verde</strong> — Hojas, hierba, tallos y notas vegetales. Fresca, limpia y natural.</p>
+          <p>🌊 <strong>Acuática</strong> — Notas marinas y ozónicas. Fresca, limpia y ligera.</p>
+          <p>🌳 <strong>Amaderada</strong> — Cedro, sándalo, vetiver, pachulí. Elegante, cálida y sofisticada.</p>
+          <p>🍯 <strong>Ámbar / Oriental</strong> — Vainilla, especias, resinas y ámbar. Cálida, intensa, dulce y envolvente.</p>
+          <p>🍦 <strong>Gourmand</strong> — Vainilla, caramelo, chocolate, café, praliné. Dulce, cremosa y tentadora.</p>
+          <p>🪵 <strong>Chipre</strong> — Cítricos, flores, musgos y maderas. Sofisticada, elegante y con carácter.</p>
+          <p>🌿 <strong>Fougère</strong> — Lavanda, hierbas, musgos y maderas. Fresca, aromática y tradicionalmente asociada a la perfumería masculina.</p>
+          <p>🧴 <strong>Almizclada</strong> — Almizcle y notas suaves y limpias. Sensación de piel limpia, suavidad y elegancia.</p>
+          <p><br>✨ Un perfume puede combinar varias familias. Por eso podemos encontrar fragancias floral-frutales, amaderadas-aromáticas, ámbar-gourmand, entre muchas otras.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Qué familia olfativa elegir?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>A la hora de elegir un perfume, podemos tener en cuenta dos cosas diferentes: la ocasión y la estación.</p>
+          <p><br>💫 <strong>La ocasión</strong> tiene que ver con dónde y cuándo vas a usarlo: todos los días, para trabajar, una cita, una salida o un evento especial.</p>
+          <p>🌤️ <strong>La estación</strong> tiene que ver con la época del año y el clima: primavera, verano, otoño o invierno.</p>
+          <p><br>💫 <strong>SEGÚN LA OCASIÓN</strong></p>
+          <p>🌞 <strong>Día a día</strong> — Cítricas, acuáticas, verdes y aromáticas. Frescas, ligeras y fáciles de llevar.</p>
+          <p>💼 <strong>Trabajo o estudio</strong> — Aromáticas, amaderadas y almizcladas. Elegantes, equilibradas y discretas.</p>
+          <p>❤️ <strong>Cita u ocasión especial</strong> — Florales, frutales, ámbar y gourmand. Más envolventes, dulces y llamativas.</p>
+          <p>🎉 <strong>Fiestas y salidas nocturnas</strong> — Ámbar, gourmand y amaderadas. Intensidad, presencia y una estela más marcada.</p>
+          <p><br>🌤️ <strong>SEGÚN LA ESTACIÓN</strong></p>
+          <p>☀️ <strong>Primavera y verano</strong> — Suelen elegirse fragancias más frescas, luminosas y ligeras: cítricas, acuáticas, verdes y frutales.</p>
+          <p>🍂 <strong>Otoño e invierno</strong> — Suelen acompañar mejor las fragancias cálidas, intensas y envolventes: ámbar, gourmand y amaderadas.</p>
+          <p><br>✨ Y recordá: no existen reglas estrictas. El mejor perfume siempre será el que vaya con tu gusto, tu personalidad y el momento que quieras disfrutar.</p>
+          <p><br>¿Buscás una fragancia y no sabés cuál elegir? Escribinos y te ayudamos.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Cuánto duran en la piel?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Al estar hechos con extracto de alta concentración, la duración es de varias
+          horas: entre 6 y 12 horas según la piel, el clima y el tipo de fragancia. Los
+          perfumes más dulces y amaderados suelen durar más que los frescos.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Hacen envíos a todo el país?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Sí. Enviamos a todo el país por correo o transporte. También coordinamos
+          entrega en mano cuando estás en la misma ciudad. El costo del envío se
+          calcula según el destino y te lo informamos antes de confirmar el pedido.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Cómo puedo comprar?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Todo se coordina por WhatsApp. Elegís la fragancia del catálogo, tocás
+          «Consultar» y se abre el chat con el código ya escrito. Te pasamos precio,
+          stock y formas de pago, y coordinamos el envío o la entrega.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Qué medios de pago aceptan?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Para brindarte mayor comodidad y seguridad, trabajamos principalmente con
+          transferencias bancarias. En compras presenciales o entregas en mano, también podés abonar:</p>
+          <p>💵 Efectivo</p>
+          <p>💳 Tarjeta de crédito o débito, mediante Naranja X (con recargo correspondiente)</p>
+          <p><br>Elegí el medio de pago que te resulte más cómodo y disfrutá tu compra de ÂME Parfums.</p>
+        </div>
+      </details>
+
+      <details class="faq__item">
+        <summary>
+          <span>¿Hacen muestras o decants?</span>
+          <i class="bi bi-plus"></i>
+        </summary>
+        <div class="faq__contenido">
+          <p>Por el momento no ofrecemos decants individuales, pero sí tenemos disponibles
+          formatos de 30 ml, 50 ml y 100 ml de cada fragancia. Consultanos por WhatsApp
+          y te asesoramos según lo que estés buscando.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PIE ============ -->
+<footer class="pie">
+  <div class="envoltorio">
+
+    <div class="pie__grilla">
+
+      <div>
+        <span class="marca__texto">
+          <span>ÂME</span>
+          <small>PARFUMS</small>
+        </span>
+        <p>Fragancias de equivalencia con extracto importado. Atención personalizada por WhatsApp.</p>
+      </div>
+
+      <div>
+        <h4>Catálogo</h4>
+        <ul>
+          <li><a href="catalogo.html">Todos los perfumes</a></li>
+          <li><a href="catalogo.html?categoria=masculino">Masculinos</a></li>
+          <li><a href="catalogo.html?categoria=femenino">Femeninos</a></li>
+          <li><a href="catalogo.html?categoria=bodysplash">Bodysplash</a></li>
+          <li><a href="catalogo.html?categoria=unisex">Unisex</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li>
+            <a target="_blank" rel="noopener" data-whatsapp="Hola! Quiero hacer una consulta." href="#">
+              <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+          </li>
+        </ul>
+        <div class="pie__redes" style="margin-top:14px">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pie__legal">
+      <span>© 2026 ÂME Parfums</span>
+    </div>
+
+  </div>
+</footer>
+
+<a class="flotante" target="_blank" rel="noopener"
+   data-whatsapp="Hola! Quiero hacer una consulta sobre los perfumes." href="#" aria-label="Escribir por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="js/app.js"></script>
+</body>
+</html>
